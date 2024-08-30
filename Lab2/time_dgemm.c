@@ -4,7 +4,7 @@
 #include "time.h"
 #include <cblas.h>
 #include "omp.h"
-// 编译 gcc -o time_dgemm time_dgemm.c –lopenblas
+// 编译 gcc -o time_dgemm time_dgemm.c –l openblas
 // 运行 ./time_dgemm 1024
 void native_dgemm(double alpha, double beta, int M, int N, int K, double *A, double *B, double *C)
 {
@@ -375,7 +375,7 @@ int main(int argc, char *argv[])
   {
     printf("Answer true!");
   }
-  转成成秒数
+  //转成成秒数
   duration = (double)(finish.tv_sec - start.tv_sec) + (double)(finish.tv_usec - start.tv_usec) / 1.0e6;
   native_duration = (double)(native_finish.tv_sec - native_start.tv_sec) + (double)(native_finish.tv_usec - native_start.tv_usec) / 1.0e6;
   double gflops = 4.0 * m * n * k, native_gflops = 4.0 * m * n * k;
